@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <h:form>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <h1 class="display-4">
+                            <p class="text-center">
+                                Validacion view
+                            </p>
+                    </h1>
+                    <h:outputLabel for="nombre" value="Nombre" style="font-weight: bold"/>
+                    <h:inputText id="nombre" value="" required="true" label="nombre"/>
+                    <h:message for="nombre"/>
+
+                       <br/>
+                    <h:outputLabel for="desc" value="Descripcion" style="font-weight:bold"/>
+                    <h:inputTextarea id="desc" value="" required="true" label="Descripcion">
+                        <f:validateLength minimum="3" maximum="10" />
+                    </h:inputTextarea>
+                    <h:message for="desc" />
+
+                       <br/>
+                    <h:outputLabel for="correo" value="Correo" style="font-weight: bold"/>
+                    <h:inputText id="correo" value=""  required="true" validatorMessage="correo incorrecto" label="correo">
+                        <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+
+                    </h:inputText>
+                    <h:message for="correo"/>
+                    <br/>
+                    <h:outputLabel for="edad" value="Edad :" style="font-weight: bold"/>
+                    <h:inputText id="edad" value="" label="edad" validatorMessage="edad incorrecta" required="true" >
+                        <f:validateLongRange minimum="18" maximum="110"/>
+                    </h:inputText>
+                    <h:message for="edad"/>
+                      <br/>
+                    <h:outputLabel for="fecha" value="Fecha :" style="font-weight: bold"/>
+                    <h:inputText id="fecha" value="" label="feha" validatorMessage="fecha incorrecta" required="true" >
+                        <f:convertDateTime pattern="dd/MM/YYYY"/>
+                    </h:inputText>
+                    <h:message for="fecha"/>
+                    <br/>
+
+                    <h:outputLabel for="moneda" value="Moneda :" style="font-weight:bold"/>
+                    <h:inputText id="moneda" value="" label="moneda" required="true"  >
+                        <f:convertNumber type="currency" currencySymbol="$"/>
+                    </h:inputText>
+                    <h:message for="moneda" />
+                    <h:outputText value="">
+                        <f:convertNumber type="currency" currencySymbol="$"/>
+                    </h:outputText>
+                       <br/>
+                    <h:commandButton class="btn btn-primary" value="Submit" action="result"/>
+                    
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+
+
+        </h:form>
+        <h:form>
+            <h:commandButton  class="btn btn-primary" value="controlador " action="Controlador"/>
+        </h:form>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    </h:body>
+</html>
+
